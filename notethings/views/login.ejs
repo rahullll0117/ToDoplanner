@@ -1,0 +1,40 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/navbar_login.ejs') %>
+
+<div class="container">
+    <div class="row mt-5">
+        <h1>login page</h1>
+        <hr>
+        <h1>Login form</h1>
+        </div>
+        <%if(msg!=null){%>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong> <%=msg%></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          
+        <%}else{%>
+
+          <%}%>
+        <form method="post" >
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" required id="email" name="email">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" required id="password" name="password">
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <a class="btn btn-warning" role="button" aria-disabled="true" href="/register">Register</a>
+
+            </form>
+        </div>
+
+       
+        
+
+<%- include('./partials/footer.ejs') %>

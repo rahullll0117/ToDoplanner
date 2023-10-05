@@ -1,0 +1,32 @@
+<%- include('./partials/header.ejs') %>
+<div class="container mt-lg-4">
+  <h1>Edit your notes</h1>
+<br>
+<form action="/addnote" method="post" class="mb-3">
+    <div class="mb-3">
+    <input type="text" class="form-control" id="title"  name="title" placeholder="Title....">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+    <textarea class="form-control"  id="exampleFormControlTextarea1" name="content" rows="3"></textarea>
+  </div>
+  <label for="radiobutton">Set priority:</label><br>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="priority" value="high" id="priority1">
+    <label class="form-check-label" for="priority1">high</label>
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="priority" value="medium" id="priority2" >
+    <label class="form-check-label" for="priority2">medium</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="priority" value="low" id="priority3" checked>
+    <label class="form-check-label" for="priority3">low</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <a class="btn btn-warning" role="button" aria-disabled="true" href="/dashboard">
+   back
+  </a>
+</form>
+</div>
+<%- include('./partials/footer.ejs') %>

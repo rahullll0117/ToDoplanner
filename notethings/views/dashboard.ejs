@@ -1,0 +1,60 @@
+<%- include('./partials/header.ejs') %>
+  <%- include('./partials/navbar.ejs') %>
+    <div class="container-lg mt-lg-2 mt-sm-2">
+      <div class="row align-items-start mt-lg-2">
+        <div class="col-lg-11 align-items-end ">
+          <a class="btn btn-warning" role="button" aria-disabled="true" href="/addnoteshow">
+            <i class="fa-solid fa-plus"></i> Add Note
+          </a>
+        </div>
+        <div class="col-lg-1">
+          <form action="/logout" method="post">
+            <button class="btn btn-danger"> logout </button>
+          </form>
+        </div>       
+      </div>
+      <%if(data!=undefined){%>
+        <div class="row align-items-start mt-lg-2 mt-sm-2">
+          <% data.forEach((item)=>{%>
+          <div class="col mt-lg-3">
+            <%if(item.priority=="high"){%>
+              <div class="card" style="width: 16rem; background-color:red ; color: aliceblue;">
+                <div class="card-body">
+                  <h5 class="card-title"><%=item.title%></h5>
+                  <p class="card-text"><%=item.content%></p>
+                    <a href="/editnote/<%=item._id%>" class="btn btn-danger"><i class="fa-solid fa-pen-to-square"></i>
+                      edit</a>
+                    <a href="/deletenote/<%=item._id%>" class="btn btn-danger"><i class="fa-solid fa-trash"></i>
+                      Delete</a>
+                </div>
+            <%}else if(item.priority=="medium"){%>
+              <div class="card" style="width: 16rem; background-color:rgb(224, 244, 2) ; color: rgb(0, 0, 0);">
+                <div class="card-body">
+                  <h5 class="card-title"><%=item.title%></h5>
+                  <p class="card-text"><%=item.content%></p>
+                    <a href="/editnote/<%=item._id%>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i>
+                      edit</a>
+                    <a href="/deletenote/<%=item._id%>" class="btn btn-warning"><i class="fa-solid fa-trash"></i>
+                      Delete</a>
+                </div>
+            <%}else{%>
+              <div class="card" style="width: 16rem; background-color:rgb(0, 177, 253) ; color: aliceblue;">
+                <div class="card-body">
+                  <h5 class="card-title"><%=item.title%></h5>
+                  <p class="card-text"><%=item.content%></p>
+                    <a href="/editnote/<%=item._id%>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i>
+                      edit</a>
+                    <a href="/deletenote/<%=item._id%>" class="btn btn-primary"><i class="fa-solid fa-trash"></i>
+                      Delete</a>
+                </div>
+                <%}%>
+            </div>
+          </div>
+          <%})%>
+        </div>
+      <%}else{%>
+        <span class="d-block p-2 text-bg-dark"><%=msg%></span>
+      <%}%>
+      
+    </div>
+    <%- include('./partials/footer.ejs') %>
